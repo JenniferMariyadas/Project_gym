@@ -16,7 +16,7 @@ member2= Member.new({'first_name' => 'Jiayi', 'last_name' => 'Qin', 'gender' => 
 member2.save()
 member3= Member.new({'first_name' => 'Andre', 'last_name' => 'Sanchez' ,'gender' => 'male', 'age' => 32 })
 member3.save()
-member4= Member.new({'first_name' => 'Kaamya', 'last_name' => 'Sharma', 'gender' => 'male', 'age' => 28 })
+member4= Member.new({'first_name' => 'Kaamya', 'last_name' => 'Sharma', 'gender' => 'female', 'age' => 28 })
 member4.save()
 member5= Member.new({'first_name' => 'Ram', 'last_name' => 'Vel', 'gender' => 'male', 'age' => 32 })
 member5.save()
@@ -31,7 +31,7 @@ session3= Session.new({'session_name' => 'Boxing', 'type' => 'Cardio' ,'start_ti
 session3.save()
 session4= Session.new({'session_name' => 'Tabata', 'type' => 'Cardio' ,'start_time' => '2017-01-11 08:00:00'})
 session4.save()
-session5= Session.new({'session_name' => 'Body-weight', 'type' => 'strength-training', 'start_time' => '2017-01-12 10:00:00'})
+session5= Session.new({'session_name' => 'Body-weight', 'type' => 'Strength-training', 'start_time' => '2017-01-12 10:00:00'})
 session5.save()
 
 booking1 = Booking.new({"member_id" => member1.id,"session_id" => session1.id})

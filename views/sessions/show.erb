@@ -1,0 +1,7 @@
+<h2><%= @session.session_name %></h2>
+
+<p>Type: <%= @session.type %></p>
+<p>Start Time: <%= @session.start_time %></p>
+
+<a href="/sessions/<%= @session.id %>/edit">Edit</a>
+<form action="/sessions/<%= @session.id %>/delete" method="POST"><input type="submit" value="Delete"></form>

@@ -12,6 +12,10 @@ class Session
     @start_time = options['start_time']
   end
 
+  def format_name()
+    return "#{@session_name}"
+  end
+
   def save()
     sql = "INSERT INTO sessions
     (

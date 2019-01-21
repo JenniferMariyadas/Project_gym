@@ -6,8 +6,16 @@
   <div class="member">
     <h3><a href="/members/<%= member.id %>"><%= member.format_name %></a></h3>
     <p>Age: <%= member.age %></p>
-    <p>Gender: <%= member.gender.name.capitalize %></p>
+    <p>Gender: <%= member.gender.capitalize %></p>
   </div>
 
+<div class="member">
+  <h4><a href="/members/new"> Add member</a></h4>
+</div>
+
+<div class="member">
+  <h4> <a href="/member/book"> Book session</a> </h4>
+
+</div>
   <% end %>
 </div>

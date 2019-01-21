@@ -1,0 +1,15 @@
+<h2>Book session</h2>
+<form method="POST" action="/bookings">
+  <div class="form-wrapper">
+
+    <div class="form-el">
+  <label for="session">Select Session:</label>
+  <select name="session_id" id="session">
+    <% @sessions.each do |session| %>
+        <option value=<%= session.id %>><%= session.capitalize %></option>
+    <% end %>
+  </select>
+</div>
+
+  </div>
+  </form>

@@ -13,6 +13,10 @@ class Member
     @age = options['age']
   end
 
+  def format_name()
+    return "#{@first_name} #{@last_name}"
+  end
+
   def save()
     sql = "INSERT INTO members
     (
@@ -34,7 +38,7 @@ class Member
   def self.all()
     sql = "SELECT * FROM members"
     results = SqlRunner.run( sql )
-    return results.map { |booking| Booking.new( boooking ) }
+    return results.map { |member| Member.new( member ) }
   end
 
   def self.find( id )
@@ -42,13 +46,25 @@ class Member
     WHERE id = $1"
     values = [id]
     results = SqlRunner.run( sql, values )
-    return Booking.new( results.first )
+    return Member.new( results.first )
   end
 
   def self.delete_all()
     sql = "DELETE FROM members"
     SqlRunner.run(sql)
   end
+
+    def session()
+        sql = "SELECT sessions.*
+        FROM sessions
+        INNER JOIN bookings
+        ON sessions.id = bookings.session_id
+        WHERE bookings.member_id = $1"
+        values = [@id]
+        sessions = SqlRunner.run(sql, values)
+        return sessions.map {|session| Session.new(session)}
+      end
+
 
 
 end

@@ -1,0 +1,13 @@
+<h2>Sessions</h2>
+
+<div id="session-wrapper">
+  <% @sessions.each do |session| %>
+
+  <div class="session">
+    <h3><a href="/sessions/<%= session.id %>"><%= session.format_name %></a></h3>
+    <p>type: <%= session.type %></p>
+    <p>start time: <%= session.start_time %></p>
+  </div>
+
+  <% end %>
+</div>

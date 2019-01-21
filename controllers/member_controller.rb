@@ -15,6 +15,12 @@ get '/members/new' do
  erb(:"members/new")
 end
 
+get '/members/:id/book'
+@member = Member.find(params['id'].to_i)
+@members = Member.all()
+erb(:"bookings/new") do
+end
+
 get '/members/:id' do
   @member = Member.find(params['id'].to_i)
   erb( :"members/show" )
