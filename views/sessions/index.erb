@@ -1,5 +1,9 @@
 <h2>Sessions</h2>
 
+<div class="session">
+  <h4><a href="/sessions/new"> Add session</a></h4>
+</div>
+
 <div id="session-wrapper">
   <% @sessions.each do |session| %>
 
@@ -8,6 +12,10 @@
     <p>type: <%= session.type %></p>
     <p>start time: <%= session.start_time %></p>
   </div>
+
+  <!-- <div class="session">
+    <h4><a href="/sessions/<%= session.id%>/edit"> Edit session</a></h4>
+  </div> -->
 
   <% end %>
 </div>

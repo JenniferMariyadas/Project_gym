@@ -1,5 +1,9 @@
 <h2>Members</h2>
 
+<div class="member">
+  <h4><a href="/members/new"> Add member</a></h4>
+</div>
+
 <div id="member-wrapper">
   <% @members.each do |member| %>
 
@@ -9,13 +13,14 @@
     <p>Gender: <%= member.gender.capitalize %></p>
   </div>
 
-<div class="member">
-  <h4><a href="/members/new"> Add member</a></h4>
-</div>
+  <!-- <div class="member">
+    <h4><a href="/members/<%= member.id%>/edit"> Edit member</a></h4>
+  </div> -->
 
-<div class="member">
-  <h4> <a href="/member/book"> Book session</a> </h4>
 
-</div>
+  <div class="member">
+    <h4> <a href="/bookings/new?member_id=<%= member.id %>"> Book session</a> </h4>
+
+  </div>
   <% end %>
 </div>

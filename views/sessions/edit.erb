@@ -1,5 +1,6 @@
 <h2>Edit <%= @session.format_name %></h2>
 <form method="POST" action="/sessions/<%= @session.id %>">
+  <input type ="hidden" name="_method" value= "put">
   <div class="form-wrapper">
 
     <div class="form-el">

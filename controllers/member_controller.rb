@@ -10,15 +10,19 @@ get '/members' do
   erb ( :"members/index" )
 end
 
+post '/members/:id/delete' do
+  @member = Member.find(params['id'].to_i)
+  @member.delete
+  redirect to '/members'
+end
 
 get '/members/new' do
  erb(:"members/new")
 end
 
-get '/members/:id/book'
-@member = Member.find(params['id'].to_i)
-@members = Member.all()
-erb(:"bookings/new") do
+post '/members' do
+  Member.new( params ).save
+  redirect to '/members'
 end
 
 get '/members/:id' do
@@ -29,4 +33,10 @@ end
 get '/members/:id/edit' do
   @member = Member.find(params['id'])
   erb(:"members/edit")
+end
+
+put '/members/:id' do
+  @member = Member.new(params)
+  @member.update()
+  redirect to '/members'
 end

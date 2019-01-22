@@ -1,15 +1,17 @@
 <h2>Book session</h2>
 <form method="POST" action="/bookings">
+  <input type="hidden" name="member_id" value="<%= @member.id %>">
   <div class="form-wrapper">
-
     <div class="form-el">
-  <label for="session">Select Session:</label>
-  <select name="session_id" id="session">
-    <% @sessions.each do |session| %>
-        <option value=<%= session.id %>><%= session.capitalize %></option>
-    <% end %>
-  </select>
-</div>
-
+      <label for="session">Select Session:</label>
+      <select name="session_id" id="session">
+        <% @sessions.each do |session| %>
+          <option value=<%= session.id %>><%= session.session_name.capitalize %></option>
+          <% end %>
+        </select>
+    </div>
+    <div class="form-el">
+      <button name="add_booking">Make Booking</button>
+    </div>
   </div>
-  </form>
+</form>

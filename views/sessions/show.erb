@@ -1,7 +1,21 @@
-<h2><%= @session.session_name %></h2>
+<h2><%= @session.format_name %></h2>
 
 <p>Type: <%= @session.type %></p>
 <p>Start Time: <%= @session.start_time %></p>
 
 <a href="/sessions/<%= @session.id %>/edit">Edit</a>
-<form action="/sessions/<%= @session.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
+<form action="/sessions/<%= @session.id %>/delete" method="POST">
+  <input type="submit" value="Delete">
+</form>
+
+<div id="member-wrapper">
+  <% @members.each do |member| %>
+
+  <div class="member">
+    <h3><%= member.format_name %></a></h3>
+    <p>Age: <%= member.age %></p>
+    <p>Gender: <%= member.gender.capitalize %></p>
+  </div>
+
+  <% end %>
+</div>

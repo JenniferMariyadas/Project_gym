@@ -1,0 +1,14 @@
+<h1>All Bookings</h1>
+
+<p> <% for booking in  @booking%>
+  <%= booking.session.session_name %>
+  <%= booking.member.format_name %>
+  <% end %>
+</p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Session</th>
+  </tr>
+</table>

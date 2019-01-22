@@ -54,6 +54,23 @@ class Member
     SqlRunner.run(sql)
   end
 
+  def update()
+    sql = "UPDATE members
+    SET
+    (
+      first_name,
+      last_name,
+      gender,
+      age
+    )=
+    (
+      $1, $2, $3, $4
+    )
+    WHERE id = $5"
+    values = [@first_name, @last_name, @gender, @age, @id]
+    SqlRunner.run( sql, values )
+  end
+
     def session()
         sql = "SELECT sessions.*
         FROM sessions

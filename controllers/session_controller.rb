@@ -7,20 +7,38 @@ also_reload( '../models/*' )
 
 get '/sessions' do
   @sessions = Session.all()
-  erb ( :"sessions/index" )
+  erb ( :"/sessions/index" )
 end
 
+post '/sessions/:id/delete' do
+  @session = Session.find(param['id'].to_i)
+  @session.delete
+  redirect to '/sessions'
+end
 
 get '/sessions/new' do
- erb(:"sessions/new")
+ erb(:"/sessions/new")
 end
 
 get '/sessions/:id' do
   @session = Session.find(params['id'].to_i)
-  erb( :"sessions/show" )
+  @members = @session.member
+  erb( :"/sessions/show" )
 end
+
+# get '/sessions/:id/members' do
+#   @session = Session.find(params['id'].to_i)
+#   @members = @session.member
+#   erb( :"/members/index")
+# end
 
 get '/sessions/:id/edit' do
   @session = Session.find(params['id'])
-  erb(:"sessions/edit")
+  erb(:"/sessions/edit")
+end
+
+put '/sessions/:id' do
+  @session = Session.new(params)
+  @session.update()
+  redirect to '/sessions'
 end
