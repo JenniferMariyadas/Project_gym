@@ -16,10 +16,10 @@
     <% @sessions.each do |session| %>
     <tr>
       <td><a href="/sessions/<%= session.id %>"><%= session.format_name%></td>
-      <td><%= session.type %></td>
-      <td><%= session.start_time %></td>
-    </tr>
-    <% end %>
-  </table>
+        <td><%= session.type %></td>
+        <td><%= session.start_time %></td>
+      </tr>
+      <% end %>
+    </table>
 
-</div>
+  </div>

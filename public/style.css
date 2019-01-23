@@ -47,11 +47,11 @@ span{
 }
 
 .nav ul {
-background-color: none;
-/* width: 200px; */
-margin: 0 auto;
-padding: 0;
-font-size: 0px;
+  background-color: none;
+  /* width: 200px; */
+  margin: 0 auto;
+  padding: 0;
+  font-size: 0px;
 }
 
 .nav ul li {

@@ -62,34 +62,34 @@ class Member
       last_name,
       gender,
       age
-    )=
-    (
-      $1, $2, $3, $4
-    )
-    WHERE id = $5"
-    values = [@first_name, @last_name, @gender, @age, @id]
-    SqlRunner.run( sql, values )
-  end
+      )=
+      (
+        $1, $2, $3, $4
+      )
+      WHERE id = $5"
+      values = [@first_name, @last_name, @gender, @age, @id]
+      SqlRunner.run( sql, values )
+    end
 
-  def delete()
-    sql = "DELETE FROM members
-    WHERE id = $1"
-    values = [@id]
-    SqlRunner.run(sql, values)
-  end
+    def delete()
+      sql = "DELETE FROM members
+      WHERE id = $1"
+      values = [@id]
+      SqlRunner.run(sql, values)
+    end
 
 
     def session()
-        sql = "SELECT sessions.*
-        FROM sessions
-        INNER JOIN bookings
-        ON sessions.id = bookings.session_id
-        WHERE bookings.member_id = $1"
-        values = [@id]
-        sessions = SqlRunner.run(sql, values)
-        return sessions.map {|session| Session.new(session)}
-      end
+      sql = "SELECT sessions.*
+      FROM sessions
+      INNER JOIN bookings
+      ON sessions.id = bookings.session_id
+      WHERE bookings.member_id = $1"
+      values = [@id]
+      sessions = SqlRunner.run(sql, values)
+      return sessions.map {|session| Session.new(session)}
+    end
 
 
 
-end
+  end

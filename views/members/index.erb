@@ -16,11 +16,11 @@
     <% @members.each do |member| %>
     <tr>
       <td><a href="/members/<%= member.id %>"><%= member.format_name%></td>
-      <td><%= member.age %></td>
-      <td><%= member.gender.capitalize %></td>
-      <td><a href="/bookings/new?member_id=<%= member.id %>"> Book session</a></td>
-    </tr>
-    <% end %>
-  </table>
+        <td><%= member.age %></td>
+        <td><%= member.gender.capitalize %></td>
+        <td><a href="/bookings/new?member_id=<%= member.id %>"> Book session</a></td>
+      </tr>
+      <% end %>
+    </table>
 
-</div>
+  </div>
