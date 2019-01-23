@@ -1,21 +1,25 @@
-<h2>Sessions</h2>
+<h2 style= "color:#117A65;">Sessions</h2>
 
 <div class="session">
   <h4><a href="/sessions/new"> Add session</a></h4>
 </div>
 
-<div id="session-wrapper">
-  <% @sessions.each do |session| %>
+<div class="sessions-table">
+  <table>
+    <thead>
+      <tr>
+        <th scope= "col">Name</th>
+        <th scope= "col">Type</th>
+        <th scope= "col">Time</th>
+      </tr>
+    </thead>
+    <% @sessions.each do |session| %>
+    <tr>
+      <td><a href="/sessions/<%= session.id %>"><%= session.format_name%></td>
+      <td><%= session.type %></td>
+      <td><%= session.start_time %></td>
+    </tr>
+    <% end %>
+  </table>
 
-  <div class="session">
-    <h3><a href="/sessions/<%= session.id %>"><%= session.format_name %></a></h3>
-    <p>type: <%= session.type %></p>
-    <p>start time: <%= session.start_time %></p>
-  </div>
-
-  <!-- <div class="session">
-    <h4><a href="/sessions/<%= session.id%>/edit"> Edit session</a></h4>
-  </div> -->
-
-  <% end %>
 </div>

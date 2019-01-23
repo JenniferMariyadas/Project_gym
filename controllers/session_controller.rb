@@ -10,14 +10,20 @@ get '/sessions' do
   erb ( :"/sessions/index" )
 end
 
-post '/sessions/:id/delete' do
-  @session = Session.find(param['id'].to_i)
+delete '/sessions/:id' do
+  @session = Session.find(params[:id])
   @session.delete
   redirect to '/sessions'
 end
 
 get '/sessions/new' do
  erb(:"/sessions/new")
+end
+
+post '/sessions' do
+  session = Session.new(params)
+  session.save()
+  redirect to '/sessions'
 end
 
 get '/sessions/:id' do

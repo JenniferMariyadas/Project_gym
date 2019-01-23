@@ -1,26 +1,26 @@
-<h2>Members</h2>
+<h2 style= "color:#117A65;">Members</h2>
 
 <div class="member">
   <h4><a href="/members/new"> Add member</a></h4>
 </div>
+<div class="members-table">
+  <table>
+    <thead>
+      <tr>
+        <th scope= "col">Name</th>
+        <th scope= "col">Age</th>
+        <th scope= "col">Gender</th>
+        <th scope= "col">Session</th>
+      </tr>
+    </thead>
+    <% @members.each do |member| %>
+    <tr>
+      <td><a href="/members/<%= member.id %>"><%= member.format_name%></td>
+      <td><%= member.age %></td>
+      <td><%= member.gender.capitalize %></td>
+      <td><a href="/bookings/new?member_id=<%= member.id %>"> Book session</a></td>
+    </tr>
+    <% end %>
+  </table>
 
-<div id="member-wrapper">
-  <% @members.each do |member| %>
-
-  <div class="member">
-    <h3><a href="/members/<%= member.id %>"><%= member.format_name %></a></h3>
-    <p>Age: <%= member.age %></p>
-    <p>Gender: <%= member.gender.capitalize %></p>
-  </div>
-
-  <!-- <div class="member">
-    <h4><a href="/members/<%= member.id%>/edit"> Edit member</a></h4>
-  </div> -->
-
-
-  <div class="member">
-    <h4> <a href="/bookings/new?member_id=<%= member.id %>"> Book session</a> </h4>
-
-  </div>
-  <% end %>
 </div>

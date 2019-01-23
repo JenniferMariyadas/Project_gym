@@ -42,32 +42,38 @@ class Session
   # end
 
   def member()
-      sql = "SELECT members.*
-      FROM members
-      INNER JOIN bookings
-      ON members.id = bookings.member_id
-      WHERE bookings.session_id = $1"
-      values = [@id]
-      members = SqlRunner.run(sql, values)
-      return members.map {|member| Member.new(member)}
-    end
+    sql = "SELECT members.*
+    FROM members
+    INNER JOIN bookings
+    ON members.id = bookings.member_id
+    WHERE bookings.session_id = $1"
+    values = [@id]
+    members = SqlRunner.run(sql, values)
+    return members.map {|member| Member.new(member)}
+  end
 
-    def update()
-      sql = "UPDATE sessions
-      SET
-      (
-        session_name,
-        type,
-        start_time
+  def update()
+    sql = "UPDATE sessions
+    SET
+    (
+      session_name,
+      type,
+      start_time
       )=
       (
-        $1, $2, $3 
+        $1, $2, $3
       )
       WHERE id = $4"
       values = [@session_name, @type, @start_time, @id]
       SqlRunner.run( sql, values )
     end
 
+    def delete()
+      sql = "DELETE FROM sessions
+      WHERE id = $1"
+      values = [@id]
+      SqlRunner.run(sql, values)
+    end
 
 
     def self.all()
@@ -84,10 +90,10 @@ class Session
       return Session.new( results.first )
     end
 
-  def self.delete_all()
-    sql = "DELETE FROM sessions"
-    SqlRunner.run(sql)
+    def self.delete_all()
+      sql = "DELETE FROM sessions"
+      SqlRunner.run(sql)
+    end
+
+
   end
-
-
-end

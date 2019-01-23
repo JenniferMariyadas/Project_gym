@@ -4,18 +4,18 @@
 <p>Start Time: <%= @session.start_time %></p>
 
 <a href="/sessions/<%= @session.id %>/edit">Edit</a>
-<form action="/sessions/<%= @session.id %>/delete" method="POST">
+<form method="POST" action="/sessions/<%= @session.id %>">
+  <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete">
 </form>
 
 <div id="member-wrapper">
   <% @members.each do |member| %>
-
+<h3 style= "color:#117A65">Members Booked</h3>
   <div class="member">
     <h3><%= member.format_name %></a></h3>
     <p>Age: <%= member.age %></p>
     <p>Gender: <%= member.gender.capitalize %></p>
   </div>
-
   <% end %>
 </div>

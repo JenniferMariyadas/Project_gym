@@ -11,5 +11,5 @@ require_relative('./controllers/booking_controller')
 
 
 get '/' do
-  erb(:home)
+  erb(:home, :layout => :home_layout)
 end

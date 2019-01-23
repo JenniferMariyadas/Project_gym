@@ -15,11 +15,11 @@ CREATE TABLE members (
   first_name varchar(255),
   last_name varchar(255),
   gender varchar(255),
-   age INT4
+  age INT4
 );
 
 CREATE TABLE bookings (
   id SERIAL8 primary key,
-  member_id INT8 references members(id),
-  session_id INT8 references sessions(id)
+  member_id INT8 references members(id) ON DELETE CASCADE,
+  session_id INT8 references sessions(id) ON DELETE CASCADE
 );

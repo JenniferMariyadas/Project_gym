@@ -1,4 +1,4 @@
-<h1>All Bookings</h1>
+<h1 style= "color:#117A65;">Bookings</h1>
 
 <!-- <p> <% for booking in  @booking%>
   <%= booking.session.session_name %>
@@ -6,15 +6,19 @@
   <% end %>
 </p> -->
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Session</th>
-  </tr>
-   <% for booking in  @booking%>
-   <tr>
-    <td><%= booking.session.session_name %></td>
-    <td> <%= booking.member.format_name %> </td>
-  </tr>
-   <%  end %> 
-</table>
+<div class="bookings-table">
+  <table cellspacing="20">
+    <font size= "12">
+    <tr>
+      <th>Name</th>
+      <th>Session</th>
+    </tr>
+     <% for booking in  @booking%>
+     <tr>
+      <td><%= booking.session.session_name %></td>
+      <td> <%= booking.member.format_name %> </td>
+    </tr>
+     <%  end %>
+  </table>
+  </font
+</div>
